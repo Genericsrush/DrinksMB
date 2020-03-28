@@ -46,7 +46,7 @@ ActiveRecord::Schema.define(version: 2020_03_28_191553) do
     t.index ["province_id"], name: "index_cities_on_province_id"
   end
 
-  create_table "contry_of_origins", force: :cascade do |t|
+  create_table "country_of_origins", force: :cascade do |t|
     t.string "name"
     t.string "abbreviation"
     t.datetime "created_at", precision: 6, null: false
