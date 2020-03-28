@@ -6,7 +6,7 @@ class CreateDrinks < ActiveRecord::Migration[6.0]
       t.float :price
       t.boolean :new
       t.float :discount
-      t.reference :country_of_origin
+      t.references :country_of_origin
 
       t.timestamps
     end

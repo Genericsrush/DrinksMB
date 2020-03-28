@@ -1,7 +1,7 @@
 class CreateOrders < ActiveRecord::Migration[6.0]
   def change
     create_table :orders do |t|
-      t.reference :customer
+      t.references :customer
       t.float :total_cost
       t.float :gst
       t.float :pst
