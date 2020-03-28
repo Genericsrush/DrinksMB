@@ -1,0 +1,2 @@
+class OrderedDrink < ApplicationRecord
+end

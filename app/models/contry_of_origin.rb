@@ -1,0 +1,2 @@
+class ContryOfOrigin < ApplicationRecord
+end
