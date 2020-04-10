@@ -70,8 +70,10 @@ ActiveRecord::Schema.define(version: 2020_03_30_043338) do
   create_table "country_of_origins", force: :cascade do |t|
     t.string "name"
     t.string "abbreviation"
+    t.integer "drink_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.index ["drink_id"], name: "index_country_of_origins_on_drink_id"
   end
 
   create_table "customers", force: :cascade do |t|

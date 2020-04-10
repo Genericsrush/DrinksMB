@@ -33,6 +33,8 @@ gem 'devise'
 
 gem 'activeadmin_blaze_theme'
 
+gem 'kaminari'
+
 gem 'faker', :git => 'https://github.com/faker-ruby/faker.git', :branch => 'master'
 
 group :development, :test do
