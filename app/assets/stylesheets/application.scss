@@ -13,3 +13,7 @@
  *= require_tree .
  *= require_self
  */
+ .navbar-dropdown {
+  max-height: 13em;
+  overflow: auto;
+}
