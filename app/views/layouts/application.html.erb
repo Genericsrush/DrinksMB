@@ -28,7 +28,7 @@
         <div class="navbar-dropdown">
         <% CountryOfOrigin.all.each do |country|%>
           <a class="navbar-item">
-            <%=country.name%>
+            <%= link_to country.name, country%>
           </a>
           <% end%>
           <hr class="navbar-divider">
