@@ -5,6 +5,6 @@ class DrinkController < ApplicationController
   end
 
   def show
-    @drnk = Drink.find_by(params[:id])
+    @drink = Drink.find_by(params[:id])
   end
 end
