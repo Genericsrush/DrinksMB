@@ -5,4 +5,5 @@ class Drink < ApplicationRecord
   validates :name, :description, :price, presence: true
   validates :price, :discount, numericality: true
   has_one_attached :image
+
 end

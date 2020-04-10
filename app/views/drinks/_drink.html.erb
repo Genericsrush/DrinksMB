@@ -1,0 +1,19 @@
+<div class="column">
+  <div class="card">
+    <div class="card-content">
+      <p class="title">
+          <%= link_to drink.name, drink %>
+      </p>
+        <%if drink.image.present?%>
+        <div class="card-image">
+          <figure class="image">
+            <%= image_tag drink.image%>
+          </figure>
+        </div>
+        <%end%>
+      <p>Description: <%= drink.description %></p>
+      <p>Price: <%= drink.price %></p>
+      <p>New: <%= drink.new? %> </p>
+    </div>
+  </div>
+  </div>
