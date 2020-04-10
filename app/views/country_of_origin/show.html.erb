@@ -1,0 +1,4 @@
+<div class="subtitle"><%=@Country.name%></div>
+<% @Country.drinks.each do |drink|%>
+<%= render drink %>
+<% end %>
