@@ -1,10 +1,10 @@
 
 class DrinkController < ApplicationController
   def index
-    @drinks = Drink.all()
+    @drinks = Drink.all().page params[:page]
   end
 
   def show
-    @drnk = Drink.findby(params[:id])
+    @drnk = Drink.find_by(params[:id])
   end
 end
