@@ -1,1 +1,7 @@
-<%= %>
+<h1 class="title">All Drinks</h1>
+<div class="columns is-multiline">
+<% @drinks.each do |drink| %>
+  <%= render drink %>
+<% end %>
+</div>
+<%= paginate @drinks %>

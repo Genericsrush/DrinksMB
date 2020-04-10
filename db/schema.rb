@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_03_30_043338) do
+ActiveRecord::Schema.define(version: 2020_04_10_001201) do
 
   create_table "active_admin_comments", force: :cascade do |t|
     t.string "namespace"
@@ -70,8 +70,10 @@ ActiveRecord::Schema.define(version: 2020_03_30_043338) do
   create_table "country_of_origins", force: :cascade do |t|
     t.string "name"
     t.string "abbreviation"
+    t.integer "drink_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.index ["drink_id"], name: "index_country_of_origins_on_drink_id"
   end
 
   create_table "customers", force: :cascade do |t|
@@ -119,6 +121,14 @@ ActiveRecord::Schema.define(version: 2020_03_30_043338) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["customer_id"], name: "index_orders_on_customer_id"
+  end
+
+  create_table "pages", force: :cascade do |t|
+    t.string "title"
+    t.text "content"
+    t.string "permalink"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
   end
 
   create_table "provinces", force: :cascade do |t|
