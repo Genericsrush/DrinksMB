@@ -54,7 +54,9 @@ country_csv.each do |row|
       discount: [0.0,0.0,0.0,0.0,0.0,0.0,Faker::Number.decimal(l_digits:0,r_digits:2)].sample,
       country_of_origin: o
     )
-    d.save
+
+    download_image = open("https://source.unsplash.com/600x600/?#{d.name}")
+    d.image.attach(io: download_image, filename: "m-#{d.name}.jpg")
     puts "--> #{d.name} saved"
   end
 end
