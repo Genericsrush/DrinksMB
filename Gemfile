@@ -35,6 +35,8 @@ gem 'activeadmin_blaze_theme'
 
 gem 'kaminari'
 
+gem "google-cloud-storage", "~> 1.8", require: false
+
 gem 'faker', :git => 'https://github.com/faker-ruby/faker.git', :branch => 'master'
 
 group :development, :test do
