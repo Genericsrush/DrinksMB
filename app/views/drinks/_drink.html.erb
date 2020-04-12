@@ -12,7 +12,7 @@
         </div>
         <%end%>
       <p>Description: <%= drink.description %></p>
-      <p>Price: <%= drink.price_cents %></p>
+      <p>Price: <%= number_to_currency drink.price_cents/100.0 %></p>
       <p>New: <%= drink.new? %> </p>
     </div>
   </div>
