@@ -49,7 +49,7 @@ country_csv.each do |row|
     d = Drink.create(
       name: Faker::Food.ingredients+" " + endnames.sample,
       description: Faker::Food.description,
-      price: Faker::Number.decimal(l_digits:1,r_digits:2),
+      price_cents: Faker::Number.number(digits: 3),
       new: [true,false].sample,
       discount: [0.0,0.0,0.0,0.0,0.0,0.0,Faker::Number.decimal(l_digits:0,r_digits:2)].sample,
       country_of_origin: o
