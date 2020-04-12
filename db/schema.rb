@@ -92,7 +92,7 @@ ActiveRecord::Schema.define(version: 2020_04_10_001201) do
   create_table "drinks", force: :cascade do |t|
     t.string "name"
     t.text "description"
-    t.int "price_cents"
+    t.integer "price_cents"
     t.boolean "new"
     t.float "discount"
     t.integer "country_of_origin_id"

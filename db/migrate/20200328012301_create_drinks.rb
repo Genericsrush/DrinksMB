@@ -3,7 +3,7 @@ class CreateDrinks < ActiveRecord::Migration[6.0]
     create_table :drinks do |t|
       t.string :name
       t.text :description
-      t.int :price_cents
+      t.integer :price_cents
       t.boolean :new
       t.float :discount
       t.references :country_of_origin
