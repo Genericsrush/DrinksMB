@@ -16,9 +16,7 @@
 
   <div id="navbarBasicExample" class="navbar-menu">
     <div class="navbar-start">
-      <a class="navbar-item">
-        <%= link_to 'Drinks', root_path%>
-      </a>
+        <%= link_to "Drinks",root_path, class:"navbar-item"%>
 
       <div class="navbar-item has-dropdown is-hoverable">
         <a class="navbar-link">
@@ -27,19 +25,13 @@
 
         <div class="navbar-dropdown">
         <% CountryOfOrigin.all.each do |country|%>
-          <a class="navbar-item">
-            <%= link_to country.name, country%>
-          </a>
+            <%= link_to country.name, country,class: "navbar-item"%>
           <% end%>
           <hr class="navbar-divider">
         </div>
       </div>
-      <a class="navbar-item">
-        <%= link_to 'About Us', permalink_path('About_Us')%>
-      </a>
-      <a class="navbar-item">
-        <%= link_to 'Contact Us', permalink_path('Contact')%>
-      </a>
+        <%= link_to 'About Us', permalink_path('About_Us'), class:"navbar-item"%>
+        <%= link_to 'Contact Us', permalink_path('Contact'), class:"navbar-item"%>
     </div>
     <div class="navbar-end">
 
