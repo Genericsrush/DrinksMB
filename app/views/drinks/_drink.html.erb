@@ -12,9 +12,16 @@
         </div>
         <%end%>
       <p>Description: <%= drink.description %></p>
+      <%if drink.discount != 0%>
+      <p>On Sale!</p>
+      <%end%>
       <p>Price: <%= number_to_currency drink.price_cents/100.0 %></p>
       <p>New: <%= drink.new? %> </p>
+      <% if @cart.include?(drink)%>
+      <p>Item added!</p>
+      <% else %>
       <p><%= button_to 'Add to cart', add_to_cart_path(drink.id), method: :post %></p>
+      <% end %>
     </div>
   </div>
   </div>
