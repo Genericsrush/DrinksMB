@@ -2,6 +2,10 @@ Rails.application.routes.draw do
   devise_for :admin_users, ActiveAdmin::Devise.config
   ActiveAdmin.routes(self)
   root to:'drink#index'
+
+  post 'add_to_cart/:id', to: 'application#add_to_cart', as: 'add_to_cart'
+  #delete 'products/remove_from_cart/:id', to: 'products#remove_from_cart', as 'remove_from_cart'
+
   resources :drink, only: :show
   get 'country_of_origin/:id', to: 'country_of_origin#show', as: 'country_of_origin'
   get 'pages/index'
