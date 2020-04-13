@@ -7,6 +7,8 @@ Rails.application.routes.draw do
   #delete 'products/remove_from_cart/:id', to: 'products#remove_from_cart', as 'remove_from_cart'
 
   resources :drink, only: :show
+  get 'sale', to: 'drink#sale', as: 'sale'
+  get 'new', to: 'drink#new', as: 'new'
   get 'country_of_origin/:id', to: 'country_of_origin#show', as: 'country_of_origin'
   get 'pages/index'
   get '/p/:permalink', to: 'pages#permalink', as: "permalink"
