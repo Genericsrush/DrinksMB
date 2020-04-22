@@ -14,10 +14,15 @@
   <body>
   <nav class="navbar" role="navigation" aria-label="main navigation">
 
-  <div id="navbarBasicExample" class="navbar-menu">
+  <div id="navbarBasicExample" class="navbar-menu is-active">
     <div class="navbar-start">
-        <%= link_to "Drinks",root_path, class:"navbar-item"%>
-
+    <div class="navbar-item has-dropdown is-hoverable">
+        <%= link_to "Drinks",root_path, class:"navbar-link"%>
+        <div class="navbar-dropdown">
+            <%= link_to "New Arrivals",new_path, class:"navbar-item"%>
+            <%= link_to "On Sale",sale_path, class:"navbar-item"%>
+        </div>
+    </div>
       <div class="navbar-item has-dropdown is-hoverable">
         <a class="navbar-link">
           Country
@@ -30,13 +35,11 @@
           <hr class="navbar-divider">
         </div>
       </div>
-      <%= link_to "New Arrivals",new_path, class:"navbar-item"%>
-      <%= link_to "On Sale",sale_path, class:"navbar-item"%>
         <%= link_to 'About Us', permalink_path('About_Us'), class:"navbar-item"%>
         <%= link_to 'Contact Us', permalink_path('Contact'), class:"navbar-item"%>
     </div>
     <div class="navbar-end">
-
+        <%= render partial: 'drinks/search'%>
     </div>
   </div>
 </nav>
@@ -45,7 +48,19 @@
     <header>
     <div class='title'>Drinks MB</div>
      </header>
-    <%= debug session[:cart] %>
+    <details>
+     <summary>Shopping Cart</summary>
+     <% if @cart.empty?%>
+      <p>No items in cart.</p>
+     <%else%>
+      <ul>
+        <%@cart.each do |product|%>
+          <li><%= product.name%> - <%= link_to 'Remove from cart', remove_from_cart_path(product), method: :delete%></li>
+        <%end%>
+      </ul>
+    <%end%>
+      </details>
+
     <%= yield %>
 
     </div>

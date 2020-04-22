@@ -1,0 +1,15 @@
+
+
+<%= form_with(url: search_path, local: true, method: "get") do %>
+<div class="field has-addons is-grouped is-grouped-multiline">
+<p class="control">
+  <%= text_field_tag(:name,"", :class=>'input',:placeholder=>"Search")%>
+</p>
+    <div class="select is-expanded">
+  <%= select_tag "country",options_from_collection_for_select(CountryOfOrigin.all, "id", "name") , class: "select",:include_blank => '-Select a country-'%>
+    </div>
+  <p class="control">
+    <%= submit_tag("Search", :class=>"button is-info")%>
+  </p>
+  </div>
+<% end %>

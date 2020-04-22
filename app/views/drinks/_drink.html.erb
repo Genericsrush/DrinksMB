@@ -7,7 +7,7 @@
         <%if drink.image.present?%>
         <div class="card-image">
           <figure class="image">
-            <%= image_tag drink.image%>
+            <a><%= image_tag drink.image, alt: drink.name %></a>
           </figure>
         </div>
         <%end%>
@@ -20,7 +20,7 @@
       <% if @cart.include?(drink)%>
       <p>Item added!</p>
       <% else %>
-      <p><%= button_to 'Add to cart', add_to_cart_path(drink.id), method: :post %></p>
+      <%= button_to 'Add to cart', add_to_cart_path(drink.id), method: :post %>
       <% end %>
     </div>
   </div>

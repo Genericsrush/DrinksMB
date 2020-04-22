@@ -4,11 +4,14 @@ Rails.application.routes.draw do
   root to:'drink#index'
 
   post 'add_to_cart/:id', to: 'application#add_to_cart', as: 'add_to_cart'
-  #delete 'products/remove_from_cart/:id', to: 'products#remove_from_cart', as 'remove_from_cart'
+  delete 'remove_from_cart/:id', to: 'application#remove_from_cart', as: 'remove_from_cart'
 
   resources :drink, only: :show
-  get 'sale', to: 'drink#sale', as: 'sale'
-  get 'new', to: 'drink#new', as: 'new'
+
+  get 'search', to: 'drink#search', as: 'search'
+
+  get 'drinks/sale', to: 'drink#sale', as: 'sale'
+  get 'drinks/new', to: 'drink#new', as: 'new'
   get 'country_of_origin/:id', to: 'country_of_origin#show', as: 'country_of_origin'
   get 'pages/index'
   get '/p/:permalink', to: 'pages#permalink', as: "permalink"

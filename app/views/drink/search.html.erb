@@ -1,0 +1,10 @@
+<h1 class="title">Search Results</h1>
+<div class="columns is-multiline">
+<% if @drinks.empty?%>
+  <h1 class="subtitle">No drinks found...</h1>
+<% else%>
+<% @drinks.each do |drink| %>
+  <%= render drink %>
+<% end %>
+<%end%>
+</div>
