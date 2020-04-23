@@ -10,6 +10,10 @@ Rails.application.routes.draw do
 
   get 'search', to: 'drink#search', as: 'search'
 
+  get 'cart', to: 'cart#index', as: 'cart'
+  get 'increment/:id', to: 'application#increment', as: 'increment'
+  get 'decrement/:id', to: 'application#decrement', as: 'decrement'
+
   get 'drinks/sale', to: 'drink#sale', as: 'sale'
   get 'drinks/new', to: 'drink#new', as: 'new'
   get 'country_of_origin/:id', to: 'country_of_origin#show', as: 'country_of_origin'

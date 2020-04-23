@@ -1,0 +1,40 @@
+
+<% total = 0%>
+<h2>MY SHOPPING CART </h2>
+<% if @cart.count <= 0 %>
+    <h1>No Items in your cart yet</h1>
+<% else %>
+    <div class="cart-gd">
+        <% @cart.each do |item| %>
+        <% drink = Drink.find(item["id"])%>
+        <div class="cart-header" id="<%= item["id"] %>" >
+
+            <%= link_to 'Remove from cart', remove_from_cart_path(item["id"]), method: :delete%>
+            <div class="cart-sec simpleCart_shelfItem">
+                <div class="cart-item cyc">
+                    <%= image_tag drink.image, alt: drink.name %>
+                </div>
+                <div class="cart-item-info">
+                    <h3><a href="#"> <%= drink.name %> </a></h3>
+
+                    <div class="delivery">
+                        <p><span>Unit Price : </span> <span><%= number_to_currency drink.price_cents/100.0 %></span></p>
+                        <div class="clearfix"></div>
+                        <p><span>Quantity : </span> <%= link_to '-',decrement_path(item["id"])%><span><%= item["qty"] %></span> <%= link_to '+',increment_path(item["id"])%></p>
+                        <div class="clearfix"></div>
+                        <p><span>Total Price : </span> <span><%= number_to_currency (drink.price_cents/100.0)*item["qty"] %></span></p>
+                        <div class="clearfix"></div>
+                    </div>
+                </div>
+                <div class="clearfix"></div>
+
+            </div>
+        </div>
+        <% total += drink.price_cents*item["qty"]%>
+        <% end %>
+        <p><span>Subtotal : </span> <span><%= number_to_currency total/100.0%></span></p>
+        <div style="margin-top: 50px; text-align: right;">
+            <a href="/orders/checkout" class="button">Checkout</a>
+        </div>
+    </div>
+<% end %>

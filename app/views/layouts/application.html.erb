@@ -37,6 +37,7 @@
       </div>
         <%= link_to 'About Us', permalink_path('About_Us'), class:"navbar-item"%>
         <%= link_to 'Contact Us', permalink_path('Contact'), class:"navbar-item"%>
+        <%= link_to 'Cart', cart_path, class:"navbar-item"%>
     </div>
     <div class="navbar-end">
         <%= render partial: 'drinks/search'%>
@@ -48,14 +49,14 @@
     <header>
     <div class='title'>Drinks MB</div>
      </header>
-    <details>
+        <details>
      <summary>Shopping Cart</summary>
      <% if @cart.empty?%>
       <p>No items in cart.</p>
      <%else%>
       <ul>
         <%@cart.each do |product|%>
-          <li><%= product.name%> - <%= link_to 'Remove from cart', remove_from_cart_path(product), method: :delete%></li>
+          <li><%= Drink.find(product["id"]).name%>- Quantity <%= product["qty"]%> - <%= link_to 'Remove from cart', remove_from_cart_path(product["id"]), method: :delete%></li>
         <%end%>
       </ul>
     <%end%>
