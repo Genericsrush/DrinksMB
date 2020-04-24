@@ -47,9 +47,12 @@ group :production do
   gem 'pg'
 end
 
-group :development, :test  do
+group :development, :test do
   # Use sqlite3 as the database for Active Record
-  # gem 'sqlite3', '~> 1.4'
+  gem 'sqlite3', '~> 1.4'
+end
+
+group :development  do
   # Access an interactive console on exception pages or by calling 'console' anywhere in the code.
   gem 'web-console', '>= 3.3.0'
   gem 'listen', '>= 3.0.5', '< 3.2'
