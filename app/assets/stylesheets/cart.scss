@@ -1,3 +1,17 @@
 // Place all the styles related to the cart controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: https://sass-lang.com/
+$dark-theme: true !default;
+$primary-color: #b1b1b1 !default;
+$accent-color: #625aa7 !default;
+
+@if $dark-theme {
+  $primary-color: darken($primary-color, 60%);
+  $accent-color: lighten($accent-color, 60%);
+}
+
+.button {
+  background-color: $primary-color;
+  border: 1px solid $accent-color;
+  border-radius: 3px;
+}
